@@ -7,3 +7,4 @@ import com.nishant.model.User;
 public interface  UserRepository extends JpaRepository<User,Integer>{
 
 }
+ 
