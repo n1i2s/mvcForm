@@ -3,18 +3,22 @@ package com.nishant.controller;
 import org.hibernate.annotations.Parameter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.nishant.DAO.UserDAO;
 import com.nishant.model.User;
 
 @Controller
 public class UserController {
 	private final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
+	@Autowired
+	public UserDAO userdao;
 	
 	@RequestMapping(value="/index.html", method=RequestMethod.GET)
 	public String indexpage() {
@@ -23,6 +27,8 @@ public class UserController {
 	
 	@RequestMapping(value="/adduser.html", method=RequestMethod.GET)
 	public String hello() {
+		//userdao.insertuser(user);
+		userdao.test();
 		return "adduser";
 	}
 	
